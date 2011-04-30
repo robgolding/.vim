@@ -2,7 +2,7 @@
 	path = bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 [submodule "bundle/command-t"]
-	path = bundle/command-c
+	path = bundle/command-t
 	url = git://github.com/wincent/Command-T.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
@@ -10,9 +10,6 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundle/yankrin"]
-	path = bundle/yankrin
-	url = git://github.com/vim-scripts/YankRing.vim.git
 [submodule "bundle/yankring"]
 	path = bundle/yankring
 	url = git://github.com/vim-scripts/YankRing.vim.git
