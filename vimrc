@@ -83,7 +83,7 @@ nnoremap <leader>t3 yypVr^
 nnoremap <leader>t4 yypVr"
 nnoremap <leader>tt yypVr=yykPjj
 
-nnoremap <leader>m :!make<CR>
+nnoremap <leader>m :!cd `dirname %` && make<CR>
 nnoremap <leader>b :w<CR> :!~/university/notes/build<CR>
 
 nnoremap <leader>q gqip
