@@ -5,6 +5,8 @@ if has("autocmd")
     filetype plugin indent on
 endif
 
+syntax enable
+
 set nocompatible
 
 set modelines=0
