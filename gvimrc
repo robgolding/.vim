@@ -1,5 +1,5 @@
 set number
-set lines=53 columns=125
+set lines=40 columns=110
 
 set go-=T
 set showtabline=2
@@ -10,3 +10,6 @@ set nomousehide
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.*/
+
+set vb=
+set t_vb=
