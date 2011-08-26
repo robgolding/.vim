@@ -17,7 +17,7 @@ set number
 
 set mouse=a
 
-set encoding=utf-8
+set encoding=utf8
 set scrolloff=3
 set autoindent
 set showmode
