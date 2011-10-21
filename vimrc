@@ -33,7 +33,7 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set spell spelllang=en_gb
+set nospell
 
 set wrap
 set textwidth=79
