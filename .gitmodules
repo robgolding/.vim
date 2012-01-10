@@ -1,9 +1,6 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://github.com/wincent/Command-T.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
@@ -16,3 +13,6 @@
 [submodule "bundle/latex-suite"]
 	path = bundle/latex-suite
 	url = https://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
