@@ -76,7 +76,8 @@ inoremap jj <ESC>
 nnoremap <C-Tab> <C-PageDown>
 nnoremap <C-S-Tab> <C-PageUp>
 
-nnoremap <C-t> :CommandT <CR>
+"nnoremap <C-t> :CommandT <CR>
+nnoremap <C-t> :CtrlP <CR>
 nnoremap <leader>, :tabnew <CR>
 
 nnoremap <leader>t1 yypVr=
@@ -123,7 +124,7 @@ vnoremap <F9> :NERDTreeToggle<cr>
 
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-colorscheme darkspectrum
+colorscheme solarized
 set t_Co=256
 
 nnoremap <leader>gs :!git status<cr>
@@ -135,7 +136,16 @@ nnoremap <leader>gd :!git diff<cr>
 """"""""""""""""""""""""""""""""
 
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
+autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+if has("gui_running")
+    autocmd! bufwritepost .vimrc source ~/.gvimrc
+    autocmd! bufwritepost vimrc source ~/.gvimrc
+endif
+
+autocmd! bufwritepost .gvimrc source ~/.gvimrc
+autocmd! bufwritepost gvimrc source ~/.gvimrc
 
 " Turn backup off, since most stuff is in SVN, git anyway...
 set nobackup
@@ -243,25 +253,6 @@ function! HasPaste()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Parenthesis/bracket expanding
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
-
-" Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
-inoremap $t <><esc>i
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Pressing ,ss will toggle and untoggle spell checking
@@ -317,3 +308,5 @@ endif
 let g:yankring_replace_n_pkey = '<m-p>'
 let g:yankring_replace_n_nkey = '<m-n>'
 let g:yankring_history_file = '.yankring_history'
+
+let g:Powerline_symbols = 'fancy'
