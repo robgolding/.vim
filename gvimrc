@@ -1,12 +1,12 @@
 set number
-set lines=60 columns=115
+set lines=45 columns=115
 
 set go-=m "remove menu bar
 set go-=M "remove menu bar (don't even source the script)
 set go-=T "remove toolbar
 set go-=r "remove scrollbar
 
-set guifont=Monaco\ for\ Powerline:h14
+set guifont=Ubuntu\ Mono\ for\ Powerline\ 14
 set antialias
 
 set showtabline=2
@@ -19,6 +19,13 @@ set nomousehide
 
 "match ExtraWhitespace /\s\+\%#\@<!$/
 
-set colorcolumn=79
-
 set t_vb=
+
+autocmd! bufwritepost .vimrc source % source ~/.gvimrc
+autocmd! bufwritepost vimrc source % source ~/.gvimrc
+autocmd! bufwritepost .gvimrc source %
+autocmd! bufwritepost gvimrc source %
+
+if filereadable('gvimrc.override') 
+    source gvimrc.override
+endif 

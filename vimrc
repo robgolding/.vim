@@ -132,6 +132,7 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 let g:solarized_hitrail=1
 colorscheme solarized
 set background=dark
+set colorcolumn=80
 set t_Co=256
 
 nnoremap <leader>gs :!git status<cr>
@@ -147,10 +148,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 if has("gui_running")
-    autocmd! bufwritepost .vimrc source ~/.gvimrc
-    autocmd! bufwritepost vimrc source ~/.gvimrc
-    autocmd! bufwritepost .gvimrc source ~/.gvimrc
-    autocmd! bufwritepost gvimrc source ~/.gvimrc
 endif
 
 " Turn backup off, since most stuff is in SVN, git anyway...
@@ -316,3 +313,7 @@ let g:yankring_replace_n_nkey = '<m-n>'
 let g:yankring_history_file = '.yankring_history'
 
 let g:Powerline_symbols = 'fancy'
+
+if filereadable('vimrc.override') 
+    source vimrc.override
+endif 
