@@ -52,7 +52,6 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-nnoremap <leader><space> :noh<CR>
 map <tab> %
 
 "nnoremap <up> <nop>
@@ -70,8 +69,11 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-nnoremap ; :
+" Retrain those fingers!
+"nnoremap ; :
 inoremap jj <ESC>
+
+nnoremap Y y$
 
 nnoremap <C-Tab> <C-PageDown>
 nnoremap <C-S-Tab> <C-PageUp>
@@ -94,6 +96,7 @@ nnoremap <leader>q gqip
 nnoremap <leader>v V`]
 
 nnoremap <leader>ev :tabe ~/.vimrc<cr>
+nnoremap <leader>eg :tabe ~/.gvimrc<cr>
 
 nnoremap <leader>wc :w<cr> :!detex % \| wc -w<cr>
 
@@ -117,6 +120,8 @@ nnoremap <leader>= :12b<cr>
 nnoremap <leader><bs> :13b<cr>
 nnoremap <leader><home> :14b<cr>
 
+nnoremap <leader>r :syntax sync fromstart<cr>
+
 nnoremap <F2> :set nonumber!<cr>:set foldcolumn=0<cr>
 nnoremap <F9> :NERDTreeToggle<cr>
 inoremap <F9> :NERDTreeToggle<cr>
@@ -124,7 +129,9 @@ vnoremap <F9> :NERDTreeToggle<cr>
 
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
+let g:solarized_hitrail=1
 colorscheme solarized
+set background=dark
 set t_Co=256
 
 nnoremap <leader>gs :!git status<cr>
@@ -142,10 +149,9 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 if has("gui_running")
     autocmd! bufwritepost .vimrc source ~/.gvimrc
     autocmd! bufwritepost vimrc source ~/.gvimrc
+    autocmd! bufwritepost .gvimrc source ~/.gvimrc
+    autocmd! bufwritepost gvimrc source ~/.gvimrc
 endif
-
-autocmd! bufwritepost .gvimrc source ~/.gvimrc
-autocmd! bufwritepost gvimrc source ~/.gvimrc
 
 " Turn backup off, since most stuff is in SVN, git anyway...
 set nobackup
@@ -168,7 +174,7 @@ endtry
 " Map space to / (search) and c-space to ? (backwards search)
 map <space> /
 map <c-space> ?
-map <silent> <leader><cr> :noh<cr>
+nnoremap <silent> <leader><space> :noh<cr>
 
 " Smart way to move btw. windows
 map <C-j> <C-W>j
@@ -271,7 +277,7 @@ let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
 
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
-au BufNewFile,BufRead *.html set syntax=htmljinja
+au BufNewFile,BufRead *.html set syntax=htmldjango
 au BufNewFile,BufRead *.mako set ft=mako
 
 """"""""""""""""""""""""""""""

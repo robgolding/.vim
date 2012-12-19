@@ -15,10 +15,10 @@ nnoremap <F3> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<cr>
 
 set nomousehide
 
-highlight ExtraWhitespace ctermbg=red ctermfg=white guibg=red
+"highlight ExtraWhitespace ctermbg=red ctermfg=white guibg=darkred
 
-match ExtraWhitespace /\s\+\%#\@<!$/
+"match ExtraWhitespace /\s\+\%#\@<!$/
 
-set colorcolumn=80
+set colorcolumn=79
 
 set t_vb=
