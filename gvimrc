@@ -26,6 +26,4 @@ autocmd! bufwritepost vimrc source % source ~/.gvimrc
 autocmd! bufwritepost .gvimrc source %
 autocmd! bufwritepost gvimrc source %
 
-if filereadable('gvimrc.override') 
-    source gvimrc.override
-endif 
+silent! source ~/.gvimrc.override

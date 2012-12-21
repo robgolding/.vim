@@ -314,6 +314,4 @@ let g:yankring_history_file = '.yankring_history'
 
 let g:Powerline_symbols = 'fancy'
 
-if filereadable('vimrc.override') 
-    source vimrc.override
-endif 
+silent! source ~/.vimrc.override
