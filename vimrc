@@ -314,4 +314,8 @@ let g:yankring_history_file = '.yankring_history'
 
 let g:Powerline_symbols = 'fancy'
 
+if expand('%:t') =~?'bash-fc-\d\+'
+  setfiletype sh
+endif
+
 silent! source ~/.vimrc.override
