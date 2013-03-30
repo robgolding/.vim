@@ -1,5 +1,6 @@
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
 "call pathogen#helptags()
+call pathogen#infect()
 
 if has("autocmd")
     filetype plugin indent on
@@ -316,6 +317,7 @@ let g:Powerline_symbols = 'fancy'
 
 "let g:jedi#show_function_definition = 0
 let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#popup_on_dot = 0
 
 if expand('%:t') =~?'bash-fc-\d\+'
   setfiletype sh
