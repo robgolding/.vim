@@ -1,5 +1,6 @@
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
 "call pathogen#helptags()
+call pathogen#infect()
 
 if has("autocmd")
     filetype plugin indent on
