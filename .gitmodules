@@ -28,3 +28,6 @@
 [submodule "bundle/vim-css-color"]
 	path = bundle/vim-css-color
 	url = git://github.com/skammer/vim-css-color
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
