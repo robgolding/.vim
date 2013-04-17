@@ -323,4 +323,6 @@ if expand('%:t') =~?'bash-fc-\d\+'
   setfiletype sh
 endif
 
+let g:syntastic_always_populate_loc_list = 1
+
 silent! source ~/.vimrc.override
