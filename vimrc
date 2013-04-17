@@ -314,8 +314,9 @@ let g:yankring_history_file = '.yankring_history'
 
 let g:Powerline_symbols = 'fancy'
 
-"let g:jedi#show_function_definition = 0
-let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#show_function_definition = 0
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_on_dot = 0
 
 if expand('%:t') =~?'bash-fc-\d\+'
   setfiletype sh
