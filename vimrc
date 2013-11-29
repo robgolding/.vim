@@ -307,11 +307,13 @@ if has("autocmd")
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
+  autocmd BufNewFile,BufRead *.less set filetype=less
 endif
 
 let g:yankring_replace_n_pkey = '<m-p>'
 let g:yankring_replace_n_nkey = '<m-n>'
 let g:yankring_history_file = '.yankring_history'
+let g:yankring_zap_keys = 'f F t T / ?'
 
 let g:Powerline_symbols = 'fancy'
 
