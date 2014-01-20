@@ -285,6 +285,11 @@ let g:CommandTMaxHeight = 15
 set wildignore+=*.o,*.obj,.git,*.pyc,*.aux,*.toc,*.log
 noremap <leader>y :CommandTFlush<cr>
 
+""""""""""""""""""""""""""""""
+" => Gundo
+""""""""""""""""""""""""""""""
+noremap <leader>h :GundoToggle<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
