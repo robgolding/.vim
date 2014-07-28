@@ -83,6 +83,11 @@ nnoremap <C-S-Tab> <C-PageUp>
 nnoremap <C-t> :CtrlP <CR>
 nnoremap <leader>, :tabnew <CR>
 
+" bind ctrlp things (http://blog.scottw.com/post/22194987982/ctrlp-vim)
+map <leader>f :CtrlP<CR>
+map <leader>b :CtrlPBuffer<CR>
+map <leader>d :CtrlPMRU<cr>
+
 nnoremap <leader>t1 yypVr=
 nnoremap <leader>t2 yypVr-
 nnoremap <leader>t3 yypVr^
@@ -90,7 +95,6 @@ nnoremap <leader>t4 yypVr"
 nnoremap <leader>tt yypVr=yykPjj
 
 nnoremap <leader>m :!cd `dirname %` && make<CR>
-nnoremap <leader>b :w<CR> :!~/university/notes/build<CR>
 
 nnoremap <leader>q gqip
 
@@ -179,12 +183,6 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
-" Close the current buffer
-map <leader>bd :Bclose<cr>
-
-" Close all the buffers
-map <leader>ba :1,300 bd!<cr>
 
 " Moving around tabs
 map <c-up> :bp<cr>
@@ -323,7 +321,7 @@ let g:yankring_zap_keys = 'f F t T / ?'
 let g:Powerline_symbols = 'fancy'
 
 let g:jedi#show_function_definition = 0
-let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#popup_on_dot = 0
 
 if expand('%:t') =~?'bash-fc-\d\+'

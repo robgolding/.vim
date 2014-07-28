@@ -9,8 +9,6 @@ set go-=r "remove scrollbar
 set guifont=Ubuntu\ Mono\ for\ Powerline\ 14
 set antialias
 
-set showtabline=2
-
 nnoremap <F3> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<cr>
 
 set nomousehide
