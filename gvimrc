@@ -6,6 +6,8 @@ set go-=M "remove menu bar (don't even source the script)
 set go-=T "remove toolbar
 set go-=r "remove scrollbar
 
+set background=light
+
 set guifont=Ubuntu\ Mono\ for\ Powerline\ 14
 set antialias
 
