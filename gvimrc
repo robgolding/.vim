@@ -8,7 +8,7 @@ set go-=r "remove scrollbar
 
 set background=light
 
-set guifont=Ubuntu\ Mono\ for\ Powerline\ 14
+set guifont=Menlo\ Regular\ for\ Powerline:h12
 set antialias
 
 nnoremap <F3> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<cr>
