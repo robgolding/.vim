@@ -318,7 +318,7 @@ let g:yankring_replace_n_nkey = '<m-n>'
 let g:yankring_history_file = '.yankring_history'
 let g:yankring_zap_keys = 'f F t T / ?'
 
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 
 "let g:jedi#show_function_definition = 0
 "let g:jedi#use_tabs_not_buffers = 1
