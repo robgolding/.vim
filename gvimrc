@@ -8,7 +8,7 @@ set go-=r "remove scrollbar
 
 set background=light
 
-set guifont=Ubuntu\ Mono\ for\ Powerline\ 14
+set guifont=Menlo\ Regular\ for\ Powerline:h12
 set antialias
 
 set showtabline=2
