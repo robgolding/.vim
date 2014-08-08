@@ -322,6 +322,8 @@ let g:Powerline_symbols = 'unicode'
 
 map <leader>g :YcmCompleter GoTo<CR>
 "map <leader>gd :YcmCompleter GoToDefinition<CR>
+"
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 if expand('%:t') =~?'bash-fc-\d\+'
   setfiletype sh
