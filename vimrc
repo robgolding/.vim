@@ -320,9 +320,8 @@ let g:yankring_zap_keys = 'f F t T / ?'
 
 let g:Powerline_symbols = 'unicode'
 
-"let g:jedi#show_function_definition = 0
-"let g:jedi#use_tabs_not_buffers = 1
-"let g:jedi#popup_on_dot = 0
+map <leader>g :YcmCompleter GoTo<CR>
+"map <leader>gd :YcmCompleter GoToDefinition<CR>
 
 if expand('%:t') =~?'bash-fc-\d\+'
   setfiletype sh
