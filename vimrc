@@ -81,7 +81,6 @@ nnoremap <C-S-Tab> <C-PageUp>
 
 "nnoremap <C-t> :CommandT <CR>
 nnoremap <C-t> :CtrlP <CR>
-nnoremap <leader>, :tabnew <CR>
 
 " bind ctrlp things (http://blog.scottw.com/post/22194987982/ctrlp-vim)
 map <leader>f :CtrlP<CR>
@@ -100,8 +99,8 @@ nnoremap <leader>q gqip
 
 nnoremap <leader>v V`]
 
-nnoremap <leader>ev :tabe ~/.vimrc<cr>
-nnoremap <leader>eg :tabe ~/.gvimrc<cr>
+nnoremap <leader>ev :e ~/.vimrc<cr>
+nnoremap <leader>eg :e ~/.gvimrc<cr>
 
 nnoremap <leader>wc :w<cr> :!detex % \| wc -w<cr>
 
@@ -194,12 +193,6 @@ map <c-right> :tabnext<cr>
 map <c-s-left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 map <c-s-right> :execute 'silent! tabmove ' . (tabpagenr())<CR>
 
-" Tab configuration
-map <leader>tn :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
 
@@ -223,13 +216,6 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
-
-" Specify the behavior when switching between buffers
-try
-  set switchbuf=usetab
-  set stal=2
-catch
-endtry
 
 """"""""""""""""""""""""""""""
 " => Statusline
