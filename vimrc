@@ -297,6 +297,9 @@ if has("autocmd")
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
   autocmd BufNewFile,BufRead *.less set filetype=less
+
+  " Automatically compile coffeescripts
+  autocmd BufWritePost *.coffee silent make!
 endif
 
 let g:yankring_replace_n_pkey = '<m-p>'
