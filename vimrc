@@ -147,10 +147,6 @@ nnoremap <leader>gd :!git diff<cr>
 "" http://amix.dk/vim/vimrc.html
 """"""""""""""""""""""""""""""""
 
-" When vimrc is edited, reload it
-autocmd! bufwritepost .vimrc source ~/.vimrc
-autocmd! bufwritepost vimrc source ~/.vimrc
-
 if has("gui_running")
 endif
 
@@ -263,13 +259,6 @@ au BufNewFile,BufRead *.html set syntax=htmldjango
 au BufNewFile,BufRead *.mako set ft=mako
 
 """"""""""""""""""""""""""""""
-" => Command-T
-""""""""""""""""""""""""""""""
-let g:CommandTMaxHeight = 15
-set wildignore+=*.o,*.obj,.git,*.pyc,*.aux,*.toc,*.log
-noremap <leader>y :CommandTFlush<cr>
-
-""""""""""""""""""""""""""""""
 " => Gundo
 """"""""""""""""""""""""""""""
 noremap <leader>h :GundoToggle<cr>
@@ -277,6 +266,9 @@ noremap <leader>h :GundoToggle<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set wildignore+=*.o,*.obj,.git,*.pyc,*.aux,*.toc,*.log
+
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>M mmHmt:%s/<C-V><cr>//e<cr>'tzt'm
 noremap <leader>W mmHmt:%s/\s\+$//e<cr>:let @/=''<CR>'tzt'm
