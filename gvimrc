@@ -21,9 +21,4 @@ set nomousehide
 
 set t_vb=
 
-autocmd! bufwritepost .vimrc source % source ~/.gvimrc
-autocmd! bufwritepost vimrc source % source ~/.gvimrc
-autocmd! bufwritepost .gvimrc source %
-autocmd! bufwritepost gvimrc source %
-
 silent! source ~/.gvimrc.override

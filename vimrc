@@ -292,6 +292,10 @@ if has("autocmd")
 
   " Automatically compile coffeescripts
   autocmd BufWritePost *.coffee silent make!
+
+  " Save position in buffers when switching
+  autocmd BufLeave * let b:winview = winsaveview()
+  autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 endif
 
 let g:yankring_replace_n_pkey = '<m-p>'
