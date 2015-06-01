@@ -259,6 +259,11 @@ au BufNewFile,BufRead *.html set syntax=htmldjango
 au BufNewFile,BufRead *.mako set ft=mako
 
 """"""""""""""""""""""""""""""
+" => JS section
+""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0
+
+""""""""""""""""""""""""""""""
 " => Gundo
 """"""""""""""""""""""""""""""
 noremap <leader>h :GundoToggle<cr>
