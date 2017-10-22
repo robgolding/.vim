@@ -1,14 +1,12 @@
 set number
-set lines=45 columns=115
+set lines=50 columns=100
 
 set go-=m "remove menu bar
 set go-=M "remove menu bar (don't even source the script)
 set go-=T "remove toolbar
 set go-=r "remove scrollbar
 
-set background=light
-
-set guifont=Menlo\ Regular\ for\ Powerline:h12
+set guifont=Menlo:h13
 set antialias
 
 nnoremap <F3> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<cr>

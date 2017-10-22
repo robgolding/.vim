@@ -1,14 +1,28 @@
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-call pathogen#infect()
-
-if has("autocmd")
-    filetype plugin indent on
-endif
-
-syntax enable
-
 set nocompatible
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-surround'
+Plugin 'w0rp/ale'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'fisadev/vim-isort'
+
+call vundle#end()
+
+filetype plugin indent on
+syntax enable
 
 set modelines=0
 
@@ -80,12 +94,17 @@ nnoremap <C-Tab> <C-PageDown>
 nnoremap <C-S-Tab> <C-PageUp>
 
 "nnoremap <C-t> :CommandT <CR>
-nnoremap <C-t> :CtrlP <CR>
 
-" bind ctrlp things (http://blog.scottw.com/post/22194987982/ctrlp-vim)
-map <leader>f :CtrlP<CR>
-map <leader>b :CtrlPBuffer<CR>
-map <leader>d :CtrlPMRU<cr>
+map <leader>f :Files<CR>
+map <leader>b :Buffers<CR>
+
+let g:ackprg = 'ag --vimgrep'
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+nnoremap <Leader>k :lclose<CR>:copen<CR> " kquikfix list!
+nnoremap <Leader>l :cclose<CR>:lopen<CR> " loclist
+nnoremap <Leader>cc :cclose<CR>:lclose<CR> " close everything
 
 nnoremap <leader>t1 yypVr=
 nnoremap <leader>t2 yypVr-
@@ -103,11 +122,6 @@ nnoremap <leader>ev :e ~/.vimrc<cr>
 nnoremap <leader>eg :e ~/.gvimrc<cr>
 
 nnoremap <leader>wc :w<cr> :!detex % \| wc -w<cr>
-
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 nnoremap <leader>1 :1b<cr>
 nnoremap <leader>2 :2b<cr>
@@ -127,9 +141,6 @@ nnoremap <leader><home> :14b<cr>
 nnoremap <leader>r :syntax sync fromstart<cr>
 
 nnoremap <F2> :set nonumber!<cr>:set foldcolumn=0<cr>
-nnoremap <F9> :NERDTreeToggle<cr>
-inoremap <F9> :NERDTreeToggle<cr>
-vnoremap <F9> :NERDTreeToggle<cr>
 
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
@@ -139,6 +150,8 @@ set background=dark
 set colorcolumn=80
 set t_Co=256
 
+set guifont=Menlo:h14
+
 nnoremap <leader>gs :!git status<cr>
 nnoremap <leader>gd :!git diff<cr>
 
@@ -146,9 +159,6 @@ nnoremap <leader>gd :!git diff<cr>
 "" From the 'ultimate .vimrc'
 "" http://amix.dk/vim/vimrc.html
 """"""""""""""""""""""""""""""""
-
-if has("gui_running")
-endif
 
 " Turn backup off, since most stuff is in SVN, git anyway...
 set nobackup
@@ -167,51 +177,13 @@ try
 catch
 endtry
 
-
 " Map space to / (search) and c-space to ? (backwards search)
 map <space> /
 map <c-space> ?
 nnoremap <silent> <leader><space> :noh<cr>
 
-" Smart way to move btw. windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" Moving around tabs
-map <c-up> :bp<cr>
-map <c-down> :bn<cr>
-
-map <c-left> :tabprevious<cr>
-map <c-right> :tabnext<cr>
-
-map <c-s-left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-map <c-s-right> :execute 'silent! tabmove ' . (tabpagenr())<CR>
-
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
-
-
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
 
 """"""""""""""""""""""""""""""
 " => Statusline
@@ -221,12 +193,6 @@ set laststatus=2
 
 " Format the statusline
 set statusline=\ %{HasPaste()}%F%m%r%h\ %y\ format:\ %{&ff}\ %w%=%{fugitive#statusline()}\ \ Line:\ %l/%L:%c
-
-
-function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-    return curdir
-endfunction
 
 function! HasPaste()
     if &paste
@@ -278,11 +244,6 @@ set wildignore+=*.o,*.obj,.git,*.pyc,*.aux,*.toc,*.log
 noremap <Leader>M mmHmt:%s/<C-V><cr>//e<cr>'tzt'm
 noremap <leader>W mmHmt:%s/\s\+$//e<cr>:let @/=''<CR>'tzt'm
 
-" => Gist plugin
-
-let g:github_user = 'robgolding63'
-let g:github_token = '68a009327e3d6fc28dd528f15486fcaa'
-
 if has("autocmd")
   " Enable file type detection
   filetype on
@@ -311,22 +272,11 @@ let g:yankring_zap_keys = 'f F t T / ?'
 let g:Powerline_symbols = 'unicode'
 
 map <leader>g :YcmCompleter GoTo<CR>
-"map <leader>gd :YcmCompleter GoToDefinition<CR>
 "
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 if expand('%:t') =~?'bash-fc-\d\+'
   setfiletype sh
 endif
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-
-let g:syntastic_python_checkers = ['python', 'flake8']
 
 silent! source ~/.vimrc.override
