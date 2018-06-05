@@ -275,6 +275,8 @@ map <leader>g :YcmCompleter GoTo<CR>
 "
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 if expand('%:t') =~?'bash-fc-\d\+'
   setfiletype sh
 endif
