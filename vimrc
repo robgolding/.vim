@@ -43,12 +43,12 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
-set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set nospell
+set lazyredraw
 
 set wrap
 set textwidth=79
@@ -144,13 +144,13 @@ nnoremap <F2> :set nonumber!<cr>:set foldcolumn=0<cr>
 
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-let g:solarized_hitrail=1
-colorscheme solarized
-set background=dark
+" let g:solarized_hitrail=1
+" colorscheme solarized
+" set background=dark
 set colorcolumn=80
 set t_Co=256
 
-set guifont=Menlo:h14
+set guifont=Menlo-Regular:h14
 
 nnoremap <leader>gs :!git status<cr>
 nnoremap <leader>gd :!git diff<cr>
