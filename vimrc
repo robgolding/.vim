@@ -3,6 +3,9 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"let g:python_host_prog = '/Users/robgolding/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/robgolding/.pyenv/versions/neovim3/bin/python'
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
@@ -17,12 +20,16 @@ Plugin 'w0rp/ale'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'fisadev/vim-isort'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-commentary'
+Plugin 'morhetz/gruvbox'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'hashivim/vim-terraform'
 
 call vundle#end()
 
 filetype plugin indent on
-syntax enable
+syntax on
 
 set modelines=0
 
@@ -56,6 +63,8 @@ set formatoptions=qrn1t
 
 set list
 set listchars=tab:▸\ ,eol:¬
+
+set updatetime=100
 
 let mapleader=","
 
@@ -146,7 +155,8 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " let g:solarized_hitrail=1
 " colorscheme solarized
-" set background=dark
+colorscheme gruvbox
+set background=dark
 set colorcolumn=80
 set t_Co=256
 
@@ -272,10 +282,32 @@ let g:yankring_zap_keys = 'f F t T / ?'
 let g:Powerline_symbols = 'unicode'
 
 map <leader>g :YcmCompleter GoTo<CR>
-"
+
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_server_python_interpreter = '/Users/robgolding/.pyenv/versions/neovim3/bin/python'
+
+let g:ale_linters = {
+\   'python': ['pylint', 'isort'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\   'json': ['prettier'],
+\   'python': ['black', 'isort'],
+\}
+
+let g:python_black_executable = '/Users/robgolding/.local/bin/black'
+let g:ale_javascript_prettier_options = '--single-quote'
+let g:ale_python_black_options = '--single-quote'
+let g:ale_python_pylint_change_directory = 0
+
+" make pretty!
+map <leader>p :ALEFix<CR>
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+let g:terraform_fmt_on_save = 1
 
 if expand('%:t') =~?'bash-fc-\d\+'
   setfiletype sh
