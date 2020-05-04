@@ -107,7 +107,7 @@ nnoremap <C-S-Tab> <C-PageUp>
 map <leader>f :Files<CR>
 map <leader>b :Buffers<CR>
 
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'fd'
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
