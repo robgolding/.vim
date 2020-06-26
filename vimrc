@@ -3,8 +3,8 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"let g:python_host_prog = '/Users/robgolding/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/robgolding/.pyenv/versions/neovim3/bin/python'
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
@@ -284,7 +284,7 @@ let g:Powerline_symbols = 'unicode'
 map <leader>g :YcmCompleter GoTo<CR>
 
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_server_python_interpreter = '/Users/robgolding/.pyenv/versions/neovim3/bin/python'
+let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
 
 let g:ale_linters = {
 \   'python': ['pylint', 'isort'],
