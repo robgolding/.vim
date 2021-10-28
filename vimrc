@@ -25,6 +25,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'morhetz/gruvbox'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'hashivim/vim-terraform'
+Plugin 'ruanyl/vim-gh-line'
 
 call vundle#end()
 
